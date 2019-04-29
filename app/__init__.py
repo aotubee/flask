@@ -8,7 +8,6 @@ from flask_moment import Moment
 from flask_sqlalchemy import SQLAlchemy
 
 from config import config
-#from app.main import main as main_blueprint
 
 bootstrap=Bootstrap()
 moment=Moment()
@@ -26,7 +25,10 @@ def create_app(config_name):
     moment.init_app(app)
     db.init_app(app)
 
-#    app.register_blueprint(main_blueprint)
+    from .main import main as main_blueprint
+    app.register_blueprint(main_blueprint)
+   # from .auth import auth as auth_blueprint
+   # app.register_blueprint(auth_blueprint,url_prefix='/auth')
 
     #附加路由和自定义错误页面
     return app

@@ -11,7 +11,7 @@ from .forms import NameForm
 from .. import db
 from ..models import User
 
-@app.route('/',methods=['GET','POST'])
+@main.route('/',methods=['GET','POST'])
 def index():
     form=NameForm()
     if form.validate_on_submit():
