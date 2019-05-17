@@ -7,9 +7,12 @@ from app.models import User,Role
 from flask_script import Manager,Shell
 from flask_migrate import Migrate,MigrateCommand
 
+from flask_mail import Mail,Message
+
 app=create_app(os.getenv('FLASK_CONFIG') or 'default')
 manager=Manager(app)
 migrate=Migrate(app,db)
+mail=Mail(app)
 
 def make_shell_context():
     return dict(app=app,db=db,User=User,Role=Role)
@@ -26,5 +29,6 @@ def test():
 
 if __name__=='__main__':
     manager.run()
+#    app.run(debug=True,host='0.0.0.0')
 
 
