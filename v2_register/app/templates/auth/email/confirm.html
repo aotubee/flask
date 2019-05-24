@@ -1,0 +1,15 @@
+Dear {{ user.username }},<br />
+
+Welcome to Flasky!<br />
+
+复制下面链接地址至浏览器打开验证：<br />
+<br/>
+
+<u>{{ url_for('auth.confirm', token=token, _external=True) }}</u> <br  />
+<br/>
+
+Sincerely,<br />
+
+The Flasky Team<br />
+
+Note: replies to this email address are not monitored.
