@@ -1,0 +1,34 @@
+#!/usr/bin/env python
+# coding=utf-8
+
+from flask import Flask
+import config
+
+app=Flask(__name__)
+#First:
+#app.config.from_object(config)
+
+#Second:
+#app.config.from_pyfile('config.py')
+
+@app.route('/')
+def index():
+    return "Index Page"
+
+@app.route('/hello')
+def hello():
+    return "Hello World!"
+
+@app.route('/p/<id>/')
+def article_detail(id):
+    return "你访问的文章第%s篇" %id
+
+if __name__=="__main__":
+    #First：
+    app.debug=True
+    #Second:
+    #app.run(debug=True)
+    #Third:
+    #app.config.update(DEBUG=True)
+    app.run(host='0.0.0.0',port='8080')
+
