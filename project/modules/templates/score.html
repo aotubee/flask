@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+   <body>
+
+       {% if 80>marks>=60 %}
+      <h1> 恭喜你，成绩及格。</h1>
+      {% elif 90>marks>=80 %}
+      <h1> 恭喜你，成绩良好。</h1>
+      {% elif marks>=90 %}
+      <h1> 恭喜你，成绩优秀。</h1>
+      {% else %}
+      <h1> 很遗憾，成绩不及格。</h1>
+      {% endif %}
+      
+   </body>
+</html>
